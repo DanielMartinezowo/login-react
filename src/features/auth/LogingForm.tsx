@@ -1,23 +1,11 @@
-import React, { useState } from 'react';
-import { Button } from '../../../components/button';
-import { Input } from '../../../components/input';
-import { users } from '../users/user-static';
-
+import { Button } from '../../components/button';
+import { useState } from 'react';
+import { Input } from '../../components/input';
+import { useLoginForm } from './hooks/useLoginForm';
 export function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
+  const { email, setEmail, password, setPassword, sendForm } = useLoginForm();
   const [showPass, setShowPass] = useState(false);
 
-  const sendForm = (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const userFound = users.find((u) => u.email === email && u.password === password);
-    if (userFound) {
-      alert(`Bienvenido, ${userFound.name}`);
-    } else {
-      alert('Correo o contraseña incorrectos');
-    }
-  };
   const formValid = email.trim() !== '' && password.trim() !== '';
 
   return (

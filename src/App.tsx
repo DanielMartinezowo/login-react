@@ -1,4 +1,4 @@
-import { LoginForm } from './features/auth/components/LogingForm';
+import { LoginForm } from './features/auth/LogingForm';
 function App() {
   return (
     <>
