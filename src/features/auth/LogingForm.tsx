@@ -1,12 +1,13 @@
 import { Button } from '../../components/button';
-import { useState } from 'react';
 import { Input } from '../../components/input';
 import { useLoginForm } from './hooks/useLoginForm';
-export function LoginForm() {
-  const { email, setEmail, password, setPassword, sendForm } = useLoginForm();
-  const [showPass, setShowPass] = useState(false);
 
-  const formValid = email.trim() !== '' && password.trim() !== '';
+interface loginProps {
+  switchView: () => void;
+}
+export function LoginForm({ switchView }: loginProps) {
+  const { email, setEmail, password, setPassword, sendForm, showPass, setShowPass, formValid } =
+    useLoginForm();
 
   return (
     <section className='container-form login w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-100'>
@@ -25,7 +26,7 @@ export function LoginForm() {
             <strong>Haz click </strong>para crear una <strong>cuenta nueva</strong>
           </p>
         </div>
-        <Button type='button' text='Registrarse' id='sign-up' />
+        <Button type='button' text='Registrarse' id='sign-up' onClick={switchView} />
       </aside>
 
       <form

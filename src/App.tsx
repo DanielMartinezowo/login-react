@@ -1,11 +1,18 @@
 import { LoginForm } from './features/auth/LogingForm';
+import { RegisterForm } from './features/auth/RegisterForm';
+import { useState } from 'react';
+
 function App() {
+  const [alternateViews, setAlternateViews] = useState(true);
+
   return (
-    <>
-      <div className='min-h-screen bg-white flex items-center justify-center p-4'>
-        <LoginForm />
-      </div>
-    </>
+    <div className='min-h-screen bg-white flex items-center justify-center p-4'>
+      {alternateViews ? (
+        <LoginForm switchView={() => setAlternateViews(false)} />
+      ) : (
+        <RegisterForm switchView={() => setAlternateViews(true)} />
+      )}
+    </div>
   );
 }
 
