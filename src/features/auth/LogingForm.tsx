@@ -40,7 +40,7 @@ export function LoginForm({ switchView }: loginProps) {
           id='login-email'
           name='email'
           placeholder='Introduce tu correo'
-          iconClass='bx bx-envelope'
+          IconName='email'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -50,11 +50,11 @@ export function LoginForm({ switchView }: loginProps) {
           id='login-password'
           name='password'
           placeholder='Introduce tu contraseña'
-          iconClass='bx-lock-alt'
+          IconName='lock'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           hasIconEye={true}
-          typeOfEyeIcon={showPass ? 'bx-hide' : 'bx-show-alt'}
+          typeOfEyeIcon={showPass ? 'eye-show' : 'eye-hide'}
           eyeClick={() => setShowPass(!showPass)}
         />
         <Button type='submit' disabled={!formValid} text='Inicia Sesion' />

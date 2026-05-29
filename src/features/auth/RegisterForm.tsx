@@ -2,12 +2,14 @@ import { Input } from '../../components/input';
 import { Button } from '../../components/button';
 import { useLoginForm } from './hooks/useLoginForm';
 import type React from 'react';
+import { useState } from 'react';
 
 interface registerProps {
   switchView: () => void;
 }
 export function RegisterForm({ switchView }: registerProps) {
   const { showPass, setShowPass, formValid } = useLoginForm();
+  const [showPass2, setShowPass2] = useState(false);
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault(); // Evita que la página se recargue
     console.log('Datos enviados:');
@@ -42,9 +44,9 @@ export function RegisterForm({ switchView }: registerProps) {
           label='Nombre de Usuario'
           type='text'
           id='register-name'
-          name='email'
+          name='name'
           placeholder='Introduce un nombre de usuario'
-          iconClass='bx bx-user'
+          IconName='user'
         />
         <Input
           label='Correo Electronico'
@@ -52,7 +54,7 @@ export function RegisterForm({ switchView }: registerProps) {
           id='register-email'
           name='email'
           placeholder='Introduce tu correo'
-          iconClass='bx bx-envelope'
+          IconName='email'
         />
         <Input
           label='Contraseña'
@@ -60,21 +62,21 @@ export function RegisterForm({ switchView }: registerProps) {
           id='register-password'
           name='password'
           placeholder='Introduce tu contraseña'
-          iconClass='bx-lock-alt'
+          IconName='lock'
           hasIconEye={true}
-          typeOfEyeIcon={showPass ? 'bx-hide' : 'bx-show-alt'}
+          typeOfEyeIcon={showPass ? 'eye-show' : 'eye-hide'}
           eyeClick={() => setShowPass(!showPass)}
         />
         <Input
           label='Verfica tu contraseña'
-          type={showPass ? 'text' : 'password'}
+          type={showPass2 ? 'text' : 'password'}
           id='register-repassword'
           name='password'
           placeholder='Introduce tu contraseña'
-          iconClass='bx-lock-alt'
+          IconName='lock'
           hasIconEye={true}
-          typeOfEyeIcon={showPass ? 'bx-hide' : 'bx-show-alt'}
-          eyeClick={() => setShowPass(!showPass)}
+          typeOfEyeIcon={showPass2 ? 'eye-show' : 'eye-hide'}
+          eyeClick={() => setShowPass2(!showPass2)}
         />
         <Button type='submit' disabled={!formValid} text='Crear ' />
       </form>

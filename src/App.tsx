@@ -1,5 +1,6 @@
 import { LoginForm } from './features/auth/LogingForm';
 import { RegisterForm } from './features/auth/RegisterForm';
+import { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
 
 function App() {

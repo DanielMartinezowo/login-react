@@ -9,6 +9,16 @@ const IconMap: Record<IconName, string> = {
   'eye-show': 'bx bx-hide',
   user: 'bx bx-user',
 };
+const sizesClass = {
+  sm: 'text-[14px]',
+  md: 'text-[18px]',
+  lg: 'text-[22px]',
+};
+const positionClasses = {
+  none: '',
+  left: 'absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors duration-300',
+  right: 'absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors duration-300',
+};
 
 interface IconProps extends React.HTMLAttributes<HTMLElement> {
   name: IconName;
@@ -17,21 +27,10 @@ interface IconProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
 }
 export function Icon({ name, position = 'none', size = 'md', className = '', ...rest }: IconProps) {
-  const sizesClass = {
-    sm: 'text-[14px]',
-    md: 'text-[18px]',
-    lg: 'text-[22px]',
-  };
-  const positionClasses = {
-    none: '',
-    left: 'absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors duration-300',
-    right: 'absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors duration-300',
-  };
   const boxiconClass = IconMap[name];
+  const currentSize = sizesClass[size];
+  const currentPositon = positionClasses[position];
   return (
-    <i
-      className={`${boxiconClass} ${sizesClass[size]} ${positionClasses[position]} ${className}`}
-      {...rest}
-    />
+    <i className={`${boxiconClass} ${currentPositon} ${currentSize} ${className}`} {...rest} />
   );
 }
