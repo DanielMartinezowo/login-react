@@ -1,4 +1,4 @@
-import { Icon, type IconName } from './icon';
+import { type IconProps } from './icon';
 
 interface InputProps {
   label: string;
@@ -6,12 +6,11 @@ interface InputProps {
   id: string;
   name: string;
   placeholder: string;
-  IconName?: IconName;
+  Icon?: React.ComponentType<IconProps>;
   iconPlacement?: 'label' | 'inside';
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  hasIconEye?: boolean;
-  typeOfEyeIcon?: IconName;
+  IconEye?: React.ComponentType<IconProps>;
   eyeClick?: () => void;
 }
 export function Input({
@@ -21,26 +20,27 @@ export function Input({
   name,
   placeholder,
   iconPlacement = 'label',
-  IconName,
+  Icon,
   value,
   onChange,
-  hasIconEye = false,
-  typeOfEyeIcon = 'eye-show',
+  IconEye,
   eyeClick,
 }: InputProps) {
-  const isIconInLabel = IconName && iconPlacement === 'label';
-  const isIconInside = IconName && iconPlacement === 'inside';
+  const isIconInLabel = Icon && iconPlacement === 'label';
+  const isIconInside = Icon && iconPlacement === 'inside';
   return (
-    <div className='relative w-full h-full mb-5 flex flex-col text left-'>
+    <div className=' w-full h-full mb-5 flex flex-col text left-'>
       <label
         htmlFor={id}
         className='text-[#824fcf] text-sm mb-2 ml-2.5 flex items-center gap-1.5 font-medium'
       >
-        {isIconInLabel && <Icon name={IconName} className='text-[18px]' />}
+        {isIconInLabel && <Icon className='text-[18px]' />}
         {label}
       </label>
       <div className='relative w-full flex items-center'>
-        {isIconInside && <Icon name={IconName} position='left' className='text-[#824fcf]!' />}
+        {isIconInside && (
+          <Icon size={18} className='text-[#824fcf]! absolute left-4 top-1/2 -translate-y-1/2' />
+        )}
 
         <input
           type={type}
@@ -57,13 +57,12 @@ export function Input({
       bg-white text-gray-800 text-[15px] 
       shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-[#824fcf]
       ${isIconInside ? 'pl-11' : 'pl-5'}
-      ${hasIconEye ? '' : ''}`}
+      ${IconEye ? '' : ''}`}
         />
-        {hasIconEye && (
-          <Icon
-            name={typeOfEyeIcon}
-            position='right'
-            className='text-[#824fcf] cursor-pointer hover:text-[#b93fc6] transition-colors duration-300'
+        {IconEye && (
+          <IconEye
+            size={18}
+            className='absolute right-4 top-1/2 -translate-y-1/2 text-[#824fcf] cursor-pointer hover:text-[#b93fc6] transition-colors duration-300'
             onClick={eyeClick}
           />
         )}

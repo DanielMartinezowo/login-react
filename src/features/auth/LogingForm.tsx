@@ -1,4 +1,5 @@
 import { Button } from '../../components/button';
+import { IconEmail, IconHide, IconLock, IconShow } from '../../components/icon';
 import { Input } from '../../components/input';
 import { useLoginForm } from './hooks/useLoginForm';
 
@@ -40,7 +41,7 @@ export function LoginForm({ switchView }: loginProps) {
           id='login-email'
           name='email'
           placeholder='Introduce tu correo'
-          IconName='email'
+          Icon={IconEmail}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -50,11 +51,10 @@ export function LoginForm({ switchView }: loginProps) {
           id='login-password'
           name='password'
           placeholder='Introduce tu contraseña'
-          IconName='lock'
+          Icon={IconLock}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          hasIconEye={true}
-          typeOfEyeIcon={showPass ? 'eye-show' : 'eye-hide'}
+          IconEye={showPass ? IconHide : IconShow}
           eyeClick={() => setShowPass(!showPass)}
         />
         <Button type='submit' disabled={!formValid} text='Inicia Sesion' />

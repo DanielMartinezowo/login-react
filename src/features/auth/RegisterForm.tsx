@@ -3,6 +3,7 @@ import { Button } from '../../components/button';
 import { useLoginForm } from './hooks/useLoginForm';
 import type React from 'react';
 import { useState } from 'react';
+import { IconEmail, IconHide, IconLock, IconShow, IconUser } from '../../components/icon';
 
 interface registerProps {
   switchView: () => void;
@@ -46,7 +47,7 @@ export function RegisterForm({ switchView }: registerProps) {
           id='register-name'
           name='name'
           placeholder='Introduce un nombre de usuario'
-          IconName='user'
+          Icon={IconUser}
         />
         <Input
           label='Correo Electronico'
@@ -54,7 +55,7 @@ export function RegisterForm({ switchView }: registerProps) {
           id='register-email'
           name='email'
           placeholder='Introduce tu correo'
-          IconName='email'
+          Icon={IconEmail}
         />
         <Input
           label='Contraseña'
@@ -62,9 +63,8 @@ export function RegisterForm({ switchView }: registerProps) {
           id='register-password'
           name='password'
           placeholder='Introduce tu contraseña'
-          IconName='lock'
-          hasIconEye={true}
-          typeOfEyeIcon={showPass ? 'eye-show' : 'eye-hide'}
+          Icon={IconLock}
+          IconEye={showPass ? IconHide : IconShow}
           eyeClick={() => setShowPass(!showPass)}
         />
         <Input
@@ -73,9 +73,8 @@ export function RegisterForm({ switchView }: registerProps) {
           id='register-repassword'
           name='password'
           placeholder='Introduce tu contraseña'
-          IconName='lock'
-          hasIconEye={true}
-          typeOfEyeIcon={showPass2 ? 'eye-show' : 'eye-hide'}
+          Icon={IconLock}
+          IconEye={showPass2 ? IconHide : IconShow}
           eyeClick={() => setShowPass2(!showPass2)}
         />
         <Button type='submit' disabled={!formValid} text='Crear ' />
