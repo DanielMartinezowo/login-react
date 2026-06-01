@@ -7,13 +7,17 @@ function App() {
   const [alternateViews, setAlternateViews] = useState(true);
 
   return (
-    <div className='min-h-screen bg-white flex items-center justify-center p-4'>
-      {alternateViews ? (
-        <LoginForm switchView={() => setAlternateViews(false)} />
-      ) : (
-        <RegisterForm switchView={() => setAlternateViews(true)} />
-      )}
-    </div>
+    <>
+      <Toaster position='top-right' reverseOrder={false} />
+
+      <div className='min-h-screen bg-white flex items-center justify-center p-4'>
+        {alternateViews ? (
+          <LoginForm switchView={() => setAlternateViews(false)} />
+        ) : (
+          <RegisterForm switchView={() => setAlternateViews(true)} />
+        )}
+      </div>
+    </>
   );
 }
 
