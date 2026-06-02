@@ -7,8 +7,17 @@ interface loginProps {
   switchView: () => void;
 }
 export function LoginForm({ switchView }: loginProps) {
-  const { email, setEmail, password, setPassword, sendForm, showPass, setShowPass, formValid } =
-    useLoginForm();
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    sendForm,
+    showPass,
+    setShowPass,
+    formValid,
+    isLoading,
+  } = useLoginForm();
 
   return (
     <section className='container-form login w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-100'>
@@ -57,7 +66,12 @@ export function LoginForm({ switchView }: loginProps) {
           IconEye={showPass ? IconHide : IconShow}
           eyeClick={() => setShowPass(!showPass)}
         />
-        <Button type='submit' disabled={!formValid} text='Inicia Sesion' />
+        <Button
+          type='submit'
+          disabled={!formValid || isLoading}
+          isLoading={isLoading}
+          text={isLoading ? 'Verificando datos' : 'Inicia Sesion'}
+        />
       </form>
     </section>
   );
