@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { users } from '../users/user-static';
-import { toast } from 'react-hot-toast';
+import { notify } from '../../../utils/notify';
 
 export function useLoginForm() {
   const [email, setEmail] = useState('');
@@ -12,11 +12,9 @@ export function useLoginForm() {
     e.preventDefault();
     const userFound = users.find((u) => u.email === email && u.password === password);
     if (userFound) {
-      toast.success(`Bienvenido, ${userFound.name}`, {
-        iconTheme: { primary: '#824fcf', secondary: '' },
-      });
+      notify.succes(`Bienvenido ${userFound.name}`);
     } else {
-      toast.error('Correo o contraseña incorrectos');
+      notify.error('Correo o contrasena incorrectos');
     }
   };
 
