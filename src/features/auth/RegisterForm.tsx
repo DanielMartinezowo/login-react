@@ -27,10 +27,10 @@ export function RegisterForm({ switchView }: registerProps) {
         <div className='mb-5'>
           <h2 className='text-3xl font-bold tracking-wide mb-5.5'>Bienvenido!</h2>
           <p className='text-lg opacity-90'>
-            <strong>Crea una cuenta</strong>, usa tu email para registrarte
+            <b>Crea una cuenta</b>, usa tu email para registrarte
           </p>
           <p className='text-lg opacity-90'>
-            <strong>ya tienes una cuenta? </strong>haz click <strong>para iniciar sesion</strong>
+            <b>ya tienes una cuenta? </b>haz click <b>para iniciar sesion</b>
           </p>
         </div>
         <Button type='button' text='Iniciar Sesión' id='sign-up' onClick={switchView} />

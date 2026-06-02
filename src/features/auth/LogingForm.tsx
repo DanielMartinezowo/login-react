@@ -29,11 +29,11 @@ export function LoginForm({ switchView }: loginProps) {
         <div className='mb-5'>
           <h2 className='text-3xl font-bold tracking-wide mb-5.5'>Bienvenido de vuelta!</h2>
           <p className='text-lg opacity-90'>
-            <strong>Inicia Sesion</strong> con tus datos
+            <b>Inicia Sesion</b> con tus datos
           </p>
           <p className='text-lg opacity-75'>o</p>
           <p className='text-lg opacity-90'>
-            <strong>Haz click </strong>para crear una <strong>cuenta nueva</strong>
+            <b>Haz click </b>para crear una <b>cuenta nueva</b>
           </p>
         </div>
         <Button type='button' text='Registrarse' id='sign-up' onClick={switchView} />
