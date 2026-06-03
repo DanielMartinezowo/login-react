@@ -26,7 +26,7 @@ export function useLoginForm() {
           else reject(new Error('Correo o contraseña incorrectos'));
         }, 2500);
       });
-      notify.succes(`Bienvenido de vuelta ${foundUser.name}`);
+      notify.succes(`Bienvenido ${foundUser.name}`);
     } catch (error) {
       notify.error('Correo o Contraseña incorrectos');
       console.log(error);
