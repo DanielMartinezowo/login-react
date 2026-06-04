@@ -4,9 +4,9 @@ import { Input } from '../../components/input';
 import { useLoginForm } from './hooks/useLoginForm';
 
 interface loginProps {
-  switchView: () => void;
+  loginView: () => void;
 }
-export function LoginForm({ switchView }: loginProps) {
+export function LoginForm({ loginView }: loginProps) {
   const {
     email,
     setEmail,
@@ -36,7 +36,7 @@ export function LoginForm({ switchView }: loginProps) {
             <b>Haz click </b>para crear una <b>cuenta nueva</b>
           </p>
         </div>
-        <Button type='button' text='Registrarse' id='sign-up' onClick={switchView} />
+        <Button type='button' text='Registrarse' id='sign-up' onClick={loginView} />
       </aside>
 
       <form

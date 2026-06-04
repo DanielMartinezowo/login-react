@@ -10,10 +10,10 @@ export function MapRoutes() {
   return (
     <div className='min-h-screen bg-white flex items-center justify-center p-4'>
       {currentView === 'login' && (
-        <LoginForm switchView={() => setCurrentView('register')}></LoginForm>
+        <LoginForm loginView={() => setCurrentView('register')}></LoginForm>
       )}
       {currentView === 'register' && (
-        <RegisterForm switchView={() => setCurrentView('login')}></RegisterForm>
+        <RegisterForm registerView={() => setCurrentView('login')}></RegisterForm>
       )}
     </div>
   );

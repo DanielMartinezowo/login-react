@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { IconEmail, IconHide, IconLock, IconShow, IconUser } from '../../components/icons';
 
 interface registerProps {
-  switchView: () => void;
+  registerView: () => void;
 }
-export function RegisterForm({ switchView }: registerProps) {
+export function RegisterForm({ registerView }: registerProps) {
   const { showPass, setShowPass, formValid } = useLoginForm();
   const [showPass2, setShowPass2] = useState(false);
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -33,7 +33,7 @@ export function RegisterForm({ switchView }: registerProps) {
             <b>ya tienes una cuenta? </b>haz click <b>para iniciar sesion</b>
           </p>
         </div>
-        <Button type='button' text='Iniciar Sesión' id='sign-up' onClick={switchView} />
+        <Button type='button' text='Iniciar Sesión' id='sign-up' onClick={registerView} />
       </aside>
       <form
         onSubmit={handleSubmit}
