@@ -1,4 +1,4 @@
-import { IconSpinner } from './icons';
+import { IconSpinner } from './Spinner';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -22,7 +22,7 @@ export function Button({ text, isLoading = false, disabled, ...rest }: ButtonPro
       transition-colors duration-300 ease-in-out
       hover:bg-[#cf4f9c] disabled:bg-[#ccc] disabled:cursor-not-allowed'
     >
-      {isLoading && <IconSpinner size={18} className='text-white' />}
+      {isLoading && <IconSpinner className='text-white' />}
 
       {text}
     </button>
