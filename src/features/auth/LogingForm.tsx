@@ -1,5 +1,5 @@
 import { Button } from '../../components/button';
-import { IconEmail, IconHide, IconLock, IconShow } from '../../components/icon';
+import { IconEmail, IconHide, IconLock, IconShow } from '../../components/icons';
 import { Input } from '../../components/input';
 import { useLoginForm } from './hooks/useLoginForm';
 

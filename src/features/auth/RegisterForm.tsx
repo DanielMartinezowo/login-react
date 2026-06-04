@@ -3,7 +3,7 @@ import { Button } from '../../components/button';
 import { useLoginForm } from './hooks/useLoginForm';
 import type React from 'react';
 import { useState } from 'react';
-import { IconEmail, IconHide, IconLock, IconShow, IconUser } from '../../components/icon';
+import { IconEmail, IconHide, IconLock, IconShow, IconUser } from '../../components/icons';
 
 interface registerProps {
   switchView: () => void;

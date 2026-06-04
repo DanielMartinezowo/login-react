@@ -1,4 +1,4 @@
-import { IconSpinner } from './icon';
+import { IconSpinner } from './icons';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;

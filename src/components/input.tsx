@@ -1,4 +1,4 @@
-import { type IconProps } from './icon';
+import { type IconProps } from './icons';
 
 interface InputProps {
   label: string;
