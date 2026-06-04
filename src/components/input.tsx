@@ -1,4 +1,4 @@
-import { type IconProps } from './icons';
+import type { IconProps } from './IconBase';
 
 interface InputProps {
   label: string;
@@ -7,6 +7,7 @@ interface InputProps {
   name: string;
   placeholder: string;
   Icon?: React.ComponentType<IconProps>;
+  iconSize?: 'sm' | 'md' | 'lg';
   iconPlacement?: 'label' | 'inside';
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -19,6 +20,7 @@ export function Input({
   id,
   name,
   placeholder,
+  iconSize = 'sm',
   iconPlacement = 'label',
   Icon,
   value,
@@ -34,12 +36,15 @@ export function Input({
         htmlFor={id}
         className='text-[#824fcf] text-sm mb-2 ml-2.5 flex items-center gap-1.5 font-medium'
       >
-        {isIconInLabel && <Icon className='text-[18px]' />}
+        {isIconInLabel && <Icon size={iconSize} />}
         {label}
       </label>
       <div className='relative w-full flex items-center'>
         {isIconInside && (
-          <Icon size={18} className='text-[#824fcf]! absolute left-4 top-1/2 -translate-y-1/2' />
+          <Icon
+            size={iconSize}
+            className='text-[#824fcf]! absolute left-4 top-1/2 -translate-y-1/2 '
+          />
         )}
 
         <input
@@ -61,7 +66,7 @@ export function Input({
         />
         {IconEye && (
           <IconEye
-            size={18}
+            size={iconSize}
             className='absolute right-4 top-1/2 -translate-y-1/2 text-[#824fcf] cursor-pointer hover:text-[#b93fc6] transition-colors duration-300'
             onClick={eyeClick}
           />
