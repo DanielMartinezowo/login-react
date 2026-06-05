@@ -71,7 +71,7 @@ export function RegisterForm({ registerView }: registerProps) {
           label='Verfica tu contraseña'
           type={showPass2 ? 'text' : 'password'}
           id='register-repassword'
-          name='password'
+          name='confirmPassword'
           placeholder='Introduce tu contraseña'
           Icon={IconLock}
           IconEye={showPass2 ? IconHide : IconShow}

@@ -1,4 +1,5 @@
 import type React from 'react';
+import { cn } from '../utils/cn';
 
 export const sizeClasses = {
   sm: 'text-[14px]',
@@ -9,7 +10,7 @@ export const sizeClasses = {
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
   size?: 'sm' | 'md' | 'lg';
 }
-export function IconBase({ size = 'sm', className = '', children, ...props }: IconProps) {
+export function IconBase({ size = 'sm', className, children, ...props }: IconProps) {
   const currentSize = sizeClasses[size];
   return (
     <svg
@@ -18,7 +19,7 @@ export function IconBase({ size = 'sm', className = '', children, ...props }: Ic
       width='1.5em'
       height='1.5em'
       viewBox='0 0 24 24'
-      className={`${currentSize} ${className}`}
+      className={cn(currentSize, className)}
       {...props}
     >
       {children}

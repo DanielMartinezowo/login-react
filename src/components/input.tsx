@@ -1,37 +1,30 @@
 import type { IconProps } from './IconBase';
+import { cn } from '../utils/cn';
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  type?: string;
-  id: string;
-  name: string;
-  placeholder: string;
   Icon?: React.ComponentType<IconProps>;
   iconSize?: 'sm' | 'md' | 'lg';
   iconPlacement?: 'label' | 'inside';
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   IconEye?: React.ComponentType<IconProps>;
   eyeClick?: () => void;
 }
 export function Input({
   label,
-  type,
+  type = 'text',
   id,
-  name,
-  placeholder,
+  className,
   iconSize = 'sm',
   iconPlacement = 'label',
   Icon,
-  value,
-  onChange,
   IconEye,
   eyeClick,
+  ...rest
 }: InputProps) {
   const isIconInLabel = Icon && iconPlacement === 'label';
   const isIconInside = Icon && iconPlacement === 'inside';
   return (
-    <div className=' w-full h-full mb-5 flex flex-col text left-'>
+    <div className=' w-full h-full mb-5 flex flex-col text '>
       <label
         htmlFor={id}
         className='text-[#824fcf] text-sm mb-2 ml-2.5 flex items-center gap-1.5 font-medium'
@@ -50,19 +43,13 @@ export function Input({
         <input
           type={type}
           id={id}
-          name={name}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
+          {...rest}
           required
-          className={`w-full 
-      px-5 py-3 
-      border border-gray-300 rounded-3xl outline-none 
-      transition-all duration-300 
-      bg-white text-gray-800 text-[15px] 
-      shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-[#824fcf]
-      ${isIconInside ? 'pl-11' : 'pl-5'}
-      ${IconEye ? '' : ''}`}
+          className={cn(
+            'w-full px-5 py-3 border border-gray-300 rounded-3xl outline-none transition-all duration-300 bg-white text-gray-800 text-[15px] shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-[#824fcf]',
+            isIconInside ? 'pl-11' : 'pl-5',
+            IconEye ? '' : ''
+          )}
         />
         {IconEye && (
           <IconEye

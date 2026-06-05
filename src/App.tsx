@@ -1,10 +1,10 @@
-import { Toaster } from 'sonner';
+import { ToasterNotify } from './components/ToasterNotify';
 import { MapRoutes } from './features/rutes/mapRoutes';
 
 function App() {
   return (
     <>
-      <Toaster position='top-right' />
+      <ToasterNotify />
 
       <MapRoutes />
     </>

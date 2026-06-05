@@ -16,7 +16,7 @@ export const notify = {
       className: '!flex !flex-row !items-center !justify-center !text-center !h-auto !w-auto',
       duration: 1500,
       style: {
-        color: '#824fcf',
+        color: '#95060',
       },
     });
   },
