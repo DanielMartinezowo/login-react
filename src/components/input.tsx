@@ -27,7 +27,7 @@ export function Input({
     <div className=' w-full h-full mb-5 flex flex-col text '>
       <label
         htmlFor={id}
-        className='text-[#824fcf] text-sm mb-2 ml-2.5 flex items-center gap-1.5 font-medium'
+        className='text-primary text-sm mb-2 ml-2.5 flex items-center gap-1.5 font-medium'
       >
         {isIconInLabel && <Icon size={iconSize} />}
         {label}
@@ -36,7 +36,7 @@ export function Input({
         {isIconInside && (
           <Icon
             size={iconSize}
-            className='text-[#824fcf]! absolute left-4 top-1/2 -translate-y-1/2 '
+            className='text-primary absolute left-4 top-1/2 -translate-y-1/2 '
           />
         )}
 
@@ -46,7 +46,7 @@ export function Input({
           {...rest}
           required
           className={cn(
-            'w-full px-5 py-3 border border-gray-300 rounded-3xl outline-none transition-all duration-300 bg-white text-gray-800 text-[15px] shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-[#824fcf]',
+            'w-full px-5 py-3 border border-gray-300 rounded-3xl outline-none transition-all duration-300 bg-white text-gray-800 text-[15px] shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-primary',
             isIconInside ? 'pl-11' : 'pl-5',
             IconEye ? '' : ''
           )}
@@ -54,7 +54,7 @@ export function Input({
         {IconEye && (
           <IconEye
             size={iconSize}
-            className='absolute right-4 top-1/2 -translate-y-1/2 text-[#824fcf] cursor-pointer hover:text-[#b93fc6] transition-colors duration-300'
+            className='absolute right-4 top-1/2 -translate-y-1/2 text-primary cursor-pointer hover:text-primary-hover transition-colors duration-300'
             onClick={eyeClick}
           />
         )}
