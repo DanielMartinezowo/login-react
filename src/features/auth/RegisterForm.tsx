@@ -1,4 +1,4 @@
-import { Input } from '../../components/input';
+import { InputLogin } from '../../components/InputLogin';
 import { Button } from '../../components/button';
 import { useLoginForm } from './hooks/useLoginForm';
 import type React from 'react';
@@ -41,7 +41,7 @@ export function RegisterForm({ registerView }: registerProps) {
       >
         <h2 className='text-2xl font-bold text-gray-900 mb-2 text-center'>Crear cuenta</h2>
 
-        <Input
+        <InputLogin
           label='Nombre de Usuario'
           type='text'
           id='register-name'
@@ -49,7 +49,8 @@ export function RegisterForm({ registerView }: registerProps) {
           placeholder='Introduce un nombre de usuario'
           Icon={IconUser}
         />
-        <Input
+
+        <InputLogin
           label='Correo Electronico'
           type='email'
           id='register-email'
@@ -57,7 +58,7 @@ export function RegisterForm({ registerView }: registerProps) {
           placeholder='Introduce tu correo'
           Icon={IconEmail}
         />
-        <Input
+        <InputLogin
           label='Contraseña'
           type={showPass ? 'text' : 'password'}
           id='register-password'
@@ -67,7 +68,7 @@ export function RegisterForm({ registerView }: registerProps) {
           IconEye={showPass ? IconHide : IconShow}
           eyeClick={() => setShowPass(!showPass)}
         />
-        <Input
+        <InputLogin
           label='Verfica tu contraseña'
           type={showPass2 ? 'text' : 'password'}
           id='register-repassword'

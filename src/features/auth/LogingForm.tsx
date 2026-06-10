@@ -1,6 +1,6 @@
 import { Button } from '../../components/button';
 import { IconEmail, IconHide, IconLock, IconShow } from '../../components/icons';
-import { Input } from '../../components/input';
+import { InputLogin } from '../../components/InputLogin';
 import { useLoginForm } from './hooks/useLoginForm';
 
 interface loginProps {
@@ -20,9 +20,9 @@ export function LoginForm({ loginView }: loginProps) {
   } = useLoginForm();
 
   return (
-    <section className='container-form login w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-100'>
+    <section className='w-full max-w-4xl bg-white rounded-4xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-100'>
       <aside
-        className='information w-full md:w-1/2 bg-linear-to-br
+        className='w-full md:w-1/2 bg-linear-to-br
        from-primary to-indigo-700 text-white 
       p-5 flex flex-col justify-center items-center text-center'
       >
@@ -41,20 +41,21 @@ export function LoginForm({ loginView }: loginProps) {
 
       <form
         onSubmit={sendForm}
-        className='w-full md:w-1/2 p-12 flex flex-col justify-center items-center bg-white'
+        className='w-full relative md:w-1/2 p-12 flex flex-col justify-center items-center bg-white'
       >
         <h2 className='text-2xl font-bold text-gray-800 mb-2 text-center'>Inicia Sesión</h2>
-        <Input
+
+        <InputLogin
           label='Correo Electronico'
           type='email'
           id='login-email'
           name='email'
           placeholder='Introduce tu correo'
-          Icon={IconEmail}
           value={email}
+          iconOut={<IconEmail className='text-primary size-5' />}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <Input
+        <InputLogin
           label='Contraseña'
           type={showPass ? 'text' : 'password'}
           id='login-password'
@@ -62,6 +63,7 @@ export function LoginForm({ loginView }: loginProps) {
           placeholder='Introduce tu contraseña'
           Icon={IconLock}
           value={password}
+          iconOut={<IconLock className='text-primary size-5' />}
           onChange={(e) => setPassword(e.target.value)}
           IconEye={showPass ? IconHide : IconShow}
           eyeClick={() => setShowPass(!showPass)}
