@@ -1,4 +1,5 @@
 import { InputLogin } from '../../components/InputLogin';
+import { Input } from '../../components/Input';
 import { Button } from '../../components/button';
 import { useLoginForm } from './hooks/useLoginForm';
 import type React from 'react';
@@ -41,22 +42,22 @@ export function RegisterForm({ registerView }: registerProps) {
       >
         <h2 className='text-2xl font-bold text-gray-900 mb-2 text-center'>Crear cuenta</h2>
 
-        <InputLogin
+        <Input
           label='Nombre de Usuario'
           type='text'
           id='register-name'
           name='name'
           placeholder='Introduce un nombre de usuario'
-          Icon={IconUser}
+          iconLabel={<IconUser />}
         />
 
-        <InputLogin
+        <Input
           label='Correo Electronico'
           type='email'
           id='register-email'
           name='email'
           placeholder='Introduce tu correo'
-          Icon={IconEmail}
+          iconLabel={<IconEmail />}
         />
         <InputLogin
           label='Contraseña'

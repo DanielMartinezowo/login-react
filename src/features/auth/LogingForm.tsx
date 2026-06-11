@@ -1,6 +1,7 @@
 import { Button } from '../../components/button';
 import { IconEmail, IconHide, IconLock, IconShow } from '../../components/icons';
 import { InputLogin } from '../../components/InputLogin';
+import { Input } from '../../components/Input';
 import { useLoginForm } from './hooks/useLoginForm';
 
 interface loginProps {
@@ -45,14 +46,14 @@ export function LoginForm({ loginView }: loginProps) {
       >
         <h2 className='text-2xl font-bold text-gray-800 mb-2 text-center'>Inicia Sesión</h2>
 
-        <InputLogin
+        <Input
           label='Correo Electronico'
           type='email'
           id='login-email'
           name='email'
           placeholder='Introduce tu correo'
           value={email}
-          iconOut={<IconEmail className='text-primary size-5' />}
+          iconLabel={<IconEmail className='text-primary size-5' />}
           onChange={(e) => setEmail(e.target.value)}
         />
         <InputLogin
@@ -63,7 +64,7 @@ export function LoginForm({ loginView }: loginProps) {
           placeholder='Introduce tu contraseña'
           Icon={IconLock}
           value={password}
-          iconOut={<IconLock className='text-primary size-5' />}
+          iconLabel={<IconLock className='text-primary size-5' />}
           onChange={(e) => setPassword(e.target.value)}
           IconEye={showPass ? IconHide : IconShow}
           eyeClick={() => setShowPass(!showPass)}

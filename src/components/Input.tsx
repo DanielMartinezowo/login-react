@@ -1,28 +1,24 @@
-import type { IconProps } from './icons';
-
 import type React from 'react';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  Icon?: React.ComponentType<IconProps>;
-  IconEye?: React.ComponentType<IconProps>;
   iconLabel?: React.ReactNode;
-  eyeClick?: () => void;
+  iconLeft?: React.ReactNode;
+  iconRight?: React.ReactNode;
 }
 const positionIcons = {
   iconLeft: 'absolute left-4 top-1/2 -translate-y-1/2 text-primary',
   iconRight: 'absolute right-4 top-1/2 -translate-y-1/2 text-primary',
 };
-export function InputLogin({
+export function Input({
   label,
-  type = 'text',
+  type,
   id,
   className,
-  Icon,
+  iconLeft,
+  iconRight,
   iconLabel,
-  IconEye,
   children,
-  eyeClick,
   ...rest
 }: InputProps) {
   return (
@@ -35,21 +31,16 @@ export function InputLogin({
         {label}
       </label>
       <div className='relative w-full flex items-center'>
+        {iconRight && <div className={positionIcons.iconRight}>{iconRight}</div>}
+        {iconLeft && <div className={positionIcons.iconLeft}>{iconLeft}</div>}
         {children}
         <input
           type={type}
           id={id}
           {...rest}
           required
-          className={` w-full px-5 py-3 border border-gray-300 rounded-3xl outline-none transition-all duration-300 bg-white text-gray-800 text-[15px] shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-primary
-            ${IconEye ? '' : ''}`}
+          className='w-full px-5 py-3 border border-gray-300 rounded-3xl outline-none transition-all duration-300 bg-white text-gray-800 text-[15px] shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-primary'
         />
-        {IconEye && (
-          <IconEye
-            className={`text-primary cursor-pointer hover:text-primary-hover transition-colors duration-300 size-6 ${positionIcons.iconRight}`}
-            onClick={eyeClick}
-          />
-        )}
       </div>
     </div>
   );
