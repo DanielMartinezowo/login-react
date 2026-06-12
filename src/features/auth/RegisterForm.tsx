@@ -1,4 +1,4 @@
-import { InputLogin } from '../../components/InputLogin';
+import { InputPassword } from '../../components/InputLogin';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/button';
 import { useLoginForm } from './hooks/useLoginForm';
@@ -57,7 +57,7 @@ export function RegisterForm({ registerView }: registerProps) {
           placeholder='Introduce tu correo'
           iconLeft={<IconEmail />}
         />
-        <InputLogin
+        <InputPassword
           label='Contraseña'
           id='login-password'
           name='password'
@@ -68,7 +68,7 @@ export function RegisterForm({ registerView }: registerProps) {
           iconShow={<IconHide className='size-6 hover:text-primary-hover' />}
           iconHide={<IconShow className='size-6 hover:text-primary-hover' />}
         />
-        <InputLogin
+        <InputPassword
           label='Contraseña'
           id='login-password'
           name='password'

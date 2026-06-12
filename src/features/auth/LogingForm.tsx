@@ -1,6 +1,6 @@
 import { Button } from '../../components/button';
 import { IconEmail, IconHide, IconLock, IconShow } from '../../components/icons';
-import { InputLogin } from '../../components/InputLogin';
+import { InputPassword } from '../../components/InputLogin';
 import { Input } from '../../components/Input';
 import { useLoginForm } from './hooks/useLoginForm';
 
@@ -46,7 +46,7 @@ export function LoginForm({ loginView }: loginProps) {
           iconLeft={<IconEmail />}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <InputLogin
+        <InputPassword
           label='Contraseña'
           id='login-password'
           name='password'

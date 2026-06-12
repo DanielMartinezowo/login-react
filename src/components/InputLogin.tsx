@@ -8,7 +8,7 @@ interface InputPasswordProps extends Omit<InputProps, 'type' | 'iconRight'> {
   iconHide: React.ReactNode;
 }
 
-export function InputLogin({ iconShow, iconHide, ...rest }: InputPasswordProps) {
+export function InputPassword({ iconShow, iconHide, ...rest }: InputPasswordProps) {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <Input

@@ -1,9 +1,11 @@
 import type React from 'react';
 
+type TypesInput = 'text' | 'email' | 'password' | 'number';
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
+  type: TypesInput;
 }
 const positionIcons = {
   iconRight: 'absolute right-4 top-1/2 -translate-y-1/2 text-primary',
