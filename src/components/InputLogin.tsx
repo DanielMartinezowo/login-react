@@ -1,56 +1,28 @@
-import type { IconProps } from './icons';
-
+import { useState } from 'react';
+import { Input } from '../components/Input';
+import type { InputProps } from '../components/Input';
 import type React from 'react';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-  Icon?: React.ComponentType<IconProps>;
-  IconEye?: React.ComponentType<IconProps>;
-  iconLabel?: React.ReactNode;
-  eyeClick?: () => void;
+interface InputPasswordProps extends Omit<InputProps, 'type' | 'iconRight'> {
+  iconShow: React.ReactNode;
+  iconHide: React.ReactNode;
 }
-const positionIcons = {
-  iconLeft: 'absolute left-4 top-1/2 -translate-y-1/2 text-primary',
-  iconRight: 'absolute right-4 top-1/2 -translate-y-1/2 text-primary',
-};
-export function InputLogin({
-  label,
-  type = 'text',
-  id,
-  className,
-  Icon,
-  iconLabel,
-  IconEye,
-  children,
-  eyeClick,
-  ...rest
-}: InputProps) {
+
+export function InputLogin({ iconShow, iconHide, ...rest }: InputPasswordProps) {
+  const [showPassword, setShowPassword] = useState(false);
   return (
-    <div className=' w-full h-full mb-5 flex flex-col text '>
-      <label
-        htmlFor={id}
-        className='text-primary text-sm mb-2 ml-3 flex items-center gap-1.5 font-medium'
-      >
-        {iconLabel}
-        {label}
-      </label>
-      <div className='relative w-full flex items-center'>
-        {children}
-        <input
-          type={type}
-          id={id}
-          {...rest}
-          required
-          className={` w-full px-5 py-3 border border-gray-300 rounded-3xl outline-none transition-all duration-300 bg-white text-gray-800 text-[15px] shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-primary
-            ${IconEye ? '' : ''}`}
-        />
-        {IconEye && (
-          <IconEye
-            className={`text-primary cursor-pointer hover:text-primary-hover transition-colors duration-300 size-6 ${positionIcons.iconRight}`}
-            onClick={eyeClick}
-          />
-        )}
-      </div>
-    </div>
+    <Input
+      {...rest}
+      type={showPassword ? 'text' : 'password'}
+      iconRight={
+        <button
+          type='button'
+          onClick={() => setShowPassword(!showPassword)}
+          className='flex items-center justify-center cursor-pointer text-primary transition-colors focus:outline'
+        >
+          {showPassword ? iconHide : iconShow}
+        </button>
+      }
+    />
   );
 }

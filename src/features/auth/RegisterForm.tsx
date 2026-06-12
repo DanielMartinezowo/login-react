@@ -3,15 +3,13 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/button';
 import { useLoginForm } from './hooks/useLoginForm';
 import type React from 'react';
-import { useState } from 'react';
 import { IconEmail, IconHide, IconLock, IconShow, IconUser } from '../../components/icons';
 
 interface registerProps {
   registerView: () => void;
 }
 export function RegisterForm({ registerView }: registerProps) {
-  const { showPass, setShowPass, formValid } = useLoginForm();
-  const [showPass2, setShowPass2] = useState(false);
+  const { password, setPassword, formValid } = useLoginForm();
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault(); // Evita que la página se recargue
     console.log('Datos enviados:');
@@ -48,7 +46,7 @@ export function RegisterForm({ registerView }: registerProps) {
           id='register-name'
           name='name'
           placeholder='Introduce un nombre de usuario'
-          iconLabel={<IconUser />}
+          iconLeft={<IconUser />}
         />
 
         <Input
@@ -57,27 +55,29 @@ export function RegisterForm({ registerView }: registerProps) {
           id='register-email'
           name='email'
           placeholder='Introduce tu correo'
-          iconLabel={<IconEmail />}
+          iconLeft={<IconEmail />}
         />
         <InputLogin
           label='Contraseña'
-          type={showPass ? 'text' : 'password'}
-          id='register-password'
+          id='login-password'
           name='password'
           placeholder='Introduce tu contraseña'
-          Icon={IconLock}
-          IconEye={showPass ? IconHide : IconShow}
-          eyeClick={() => setShowPass(!showPass)}
+          value={password}
+          iconLeft={<IconLock className='text-primary size-5' />}
+          onChange={(e) => setPassword(e.target.value)}
+          iconShow={<IconHide className='size-6 hover:text-primary-hover' />}
+          iconHide={<IconShow className='size-6 hover:text-primary-hover' />}
         />
         <InputLogin
-          label='Verfica tu contraseña'
-          type={showPass2 ? 'text' : 'password'}
-          id='register-repassword'
-          name='confirmPassword'
+          label='Contraseña'
+          id='login-password'
+          name='password'
           placeholder='Introduce tu contraseña'
-          Icon={IconLock}
-          IconEye={showPass2 ? IconHide : IconShow}
-          eyeClick={() => setShowPass2(!showPass2)}
+          value={password}
+          iconLeft={<IconLock className='text-primary size-5' />}
+          onChange={(e) => setPassword(e.target.value)}
+          iconShow={<IconHide className='size-6 hover:text-primary-hover' />}
+          iconHide={<IconShow className='size-6 hover:text-primary-hover' />}
         />
         <Button type='submit' disabled={!formValid} text='Crear ' />
       </form>

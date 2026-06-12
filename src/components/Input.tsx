@@ -1,39 +1,26 @@
 import type React from 'react';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  iconLabel?: React.ReactNode;
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
 }
 const positionIcons = {
-  iconLeft: 'absolute left-4 top-1/2 -translate-y-1/2 text-primary',
   iconRight: 'absolute right-4 top-1/2 -translate-y-1/2 text-primary',
 };
-export function Input({
-  label,
-  type,
-  id,
-  className,
-  iconLeft,
-  iconRight,
-  iconLabel,
-  children,
-  ...rest
-}: InputProps) {
+export function Input({ label, type, id, className, iconLeft, iconRight, ...rest }: InputProps) {
   return (
-    <div className=' w-full h-full mb-5 flex flex-col text '>
+    <div className='w-full h-full mb-5 flex flex-col text '>
       <label
         htmlFor={id}
         className='text-primary text-sm mb-2 ml-3 flex items-center gap-1.5 font-medium'
       >
-        {iconLabel}
+        {iconLeft}
         {label}
       </label>
       <div className='relative w-full flex items-center'>
         {iconRight && <div className={positionIcons.iconRight}>{iconRight}</div>}
-        {iconLeft && <div className={positionIcons.iconLeft}>{iconLeft}</div>}
-        {children}
+
         <input
           type={type}
           id={id}

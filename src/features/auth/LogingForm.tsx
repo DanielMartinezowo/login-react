@@ -8,17 +8,7 @@ interface loginProps {
   loginView: () => void;
 }
 export function LoginForm({ loginView }: loginProps) {
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    sendForm,
-    showPass,
-    setShowPass,
-    formValid,
-    isLoading,
-  } = useLoginForm();
+  const { email, setEmail, password, setPassword, sendForm, formValid, isLoading } = useLoginForm();
 
   return (
     <section className='w-full max-w-4xl bg-white rounded-4xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-100'>
@@ -53,21 +43,19 @@ export function LoginForm({ loginView }: loginProps) {
           name='email'
           placeholder='Introduce tu correo'
           value={email}
-          iconLabel={<IconEmail className='text-primary size-5' />}
+          iconLeft={<IconEmail />}
           onChange={(e) => setEmail(e.target.value)}
         />
         <InputLogin
           label='Contraseña'
-          type={showPass ? 'text' : 'password'}
           id='login-password'
           name='password'
           placeholder='Introduce tu contraseña'
-          Icon={IconLock}
           value={password}
-          iconLabel={<IconLock className='text-primary size-5' />}
+          iconLeft={<IconLock />}
           onChange={(e) => setPassword(e.target.value)}
-          IconEye={showPass ? IconHide : IconShow}
-          eyeClick={() => setShowPass(!showPass)}
+          iconShow={<IconHide className='size-6 hover:text-primary-hover' />}
+          iconHide={<IconShow className='size-6 hover:text-primary-hover' />}
         />
         <Button
           type='submit'
