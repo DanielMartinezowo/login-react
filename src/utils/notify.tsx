@@ -5,7 +5,7 @@ export const notify = {
     toast.success(message, {
       className:
         '!flex !flex-row !items-center !justify-center !text-center !h-auto !w-auto !bg-success !border-success-dark !text-success-dark',
-      duration: 1500,
+      duration: 2500,
     });
   },
 
@@ -13,7 +13,7 @@ export const notify = {
     toast.error(message, {
       className:
         '!flex !flex-row !items-center !justify-center !text-center !h-auto !w-auto !bg-error !border-error-dark !text-error-dark',
-      duration: 1500,
+      duration: 2500,
     });
   },
 };

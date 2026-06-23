@@ -1,4 +1,4 @@
-import { InputPassword } from '../../components/InputLogin';
+import { InputPassword } from '../../components/InputPassword';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/button';
 import { useLoginForm } from './hooks/useLoginForm';

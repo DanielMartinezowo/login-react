@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Input } from '../components/Input';
-import type { InputProps } from '../components/Input';
+import { Input } from './Input';
+import type { InputProps } from './Input';
 import type React from 'react';
 
 interface InputPasswordProps extends Omit<InputProps, 'type' | 'iconRight'> {

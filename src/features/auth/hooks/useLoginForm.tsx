@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { formValidateLogin } from '../../services/authServices';
+
 import { notify } from '../../../utils/notify';
+import { authService } from '../../services/authServices';
 
 export function useLoginForm() {
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ export function useLoginForm() {
     setIsLoading(true);
 
     try {
-      const foundUser = await formValidateLogin(email, password);
+      const foundUser = await authService.login(email, password);
       notify.succes(`Bienvenido ${foundUser.name}`);
     } catch (error) {
       notify.error('Correo o Contraseña incorrectos');
