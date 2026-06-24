@@ -1,4 +1,5 @@
 import type React from 'react';
+import { cn } from '../utils/cn';
 
 type TypesInput = 'text' | 'email' | 'password' | 'number';
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -12,10 +13,10 @@ const positionIcons = {
 };
 export function Input({ label, type, id, className, iconLeft, iconRight, ...rest }: InputProps) {
   return (
-    <div className='w-full h-full mb-5 flex flex-col text '>
+    <div className='w-full h-full mb-5 flex flex-col'>
       <label
         htmlFor={id}
-        className='text-primary text-sm mb-2 ml-3 flex items-center gap-1.5 font-medium'
+        className={cn('text-primary text-sm mb-2 ml-3 flex items-center gap-1.5 font-medium')}
       >
         {iconLeft}
         {label}
@@ -28,7 +29,10 @@ export function Input({ label, type, id, className, iconLeft, iconRight, ...rest
           id={id}
           {...rest}
           required
-          className='w-full px-5 py-3 border border-gray-300 rounded-3xl outline-none transition-all duration-300 bg-white text-gray-800 text-[15px] shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-primary'
+          className={cn(
+            'w-full px-5 py-3 border border-gray-300 rounded-3xl outline-none transition-all duration-300 bg-white text-gray-800 text-[15px] shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-primary',
+            iconRight && 'pr-12'
+          )}
         />
       </div>
     </div>

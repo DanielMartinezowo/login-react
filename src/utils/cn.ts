@@ -1,6 +1,6 @@
-export function cn(...inputs: unknown[]): string {
-  return inputs
-    .filter((input): input is string => typeof input === 'string')
+export function cn(...args: unknown[]): string {
+  return args
+    .filter((arg): arg is string => typeof arg === 'string')
     .map((str) => str.trim())
     .filter((str) => str.length > 0)
     .join(' ');

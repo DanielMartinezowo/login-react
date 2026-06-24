@@ -3,9 +3,7 @@ import { cn } from '../utils/cn';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
-  disabled?: boolean;
   isLoading?: boolean;
-  onClick?: () => void;
 }
 
 export function Button({ text, isLoading = false, disabled, className, ...rest }: ButtonProps) {

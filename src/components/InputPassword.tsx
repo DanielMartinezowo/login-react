@@ -18,7 +18,7 @@ export function InputPassword({ iconShow, iconHide, ...rest }: InputPasswordProp
         <button
           type='button'
           onClick={() => setShowPassword(!showPassword)}
-          className='flex items-center justify-center cursor-pointer text-primary transition-colors focus:outline'
+          className='flex items-center justify-center cursor-pointer text-primary'
         >
           {showPassword ? iconHide : iconShow}
         </button>

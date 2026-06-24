@@ -65,7 +65,7 @@ export function RegisterForm({ registerView }: registerProps) {
           value={password}
           iconLeft={<IconLock className='text-primary size-5' />}
           onChange={(e) => setPassword(e.target.value)}
-          iconShow={<IconHide className='size-6 hover:text-primary-hover' />}
+          iconShow={<IconHide className='size-6  hover:text-primary-hover' />}
           iconHide={<IconShow className='size-6 hover:text-primary-hover' />}
         />
         <InputPassword

@@ -21,6 +21,8 @@ export function useLoginForm() {
     try {
       const foundUser = await authService.login(email, password);
       notify.succes(`Bienvenido ${foundUser.name}`);
+      setEmail('');
+      setPassword('');
     } catch (error) {
       notify.error('Correo o Contraseña incorrectos');
       console.log(error);
