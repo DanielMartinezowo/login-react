@@ -1,7 +1,7 @@
-import { Button } from '../../components/button';
-import { IconEmail, IconHide, IconLock, IconShow } from '../../components/icons';
-import { InputPassword } from '../../components/InputPassword';
-import { Input } from '../../components/Input';
+import { Button } from '../components/button';
+import { IconEmail, IconHide, IconLock, IconShow } from '../components/icons';
+import { InputPassword } from '../components/InputPassword';
+import { Input } from '../components/Input';
 import { useLoginForm } from './hooks/useLoginForm';
 
 interface loginProps {

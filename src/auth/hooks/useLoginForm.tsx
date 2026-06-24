@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { notify } from '../../../utils/notify';
+import { notify } from '../../utils/notify';
 import { authService } from '../../services/authServices';
 
 export function useLoginForm() {

@@ -1,5 +1,5 @@
-import { LoginForm } from './/../auth/LogingForm';
-import { RegisterForm } from './/../auth/RegisterForm';
+import { LoginForm } from '../auth/LogingForm';
+import { RegisterForm } from '../auth/RegisterForm';
 import { useState } from 'react';
 
 type authView = 'login' | 'register';

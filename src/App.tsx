@@ -1,5 +1,5 @@
 import { ToasterNotify } from './components/ToasterNotify';
-import { MapRoutes } from './features/rutes/mapRoutes';
+import { MapRoutes } from './rutes/mapRoutes';
 
 function App() {
   return (

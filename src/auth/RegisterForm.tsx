@@ -1,9 +1,9 @@
-import { InputPassword } from '../../components/InputPassword';
-import { Input } from '../../components/Input';
-import { Button } from '../../components/button';
+import { InputPassword } from '../components/InputPassword';
+import { Input } from '../components/Input';
+import { Button } from '../components/button';
 import { useLoginForm } from './hooks/useLoginForm';
 import type React from 'react';
-import { IconEmail, IconHide, IconLock, IconShow, IconUser } from '../../components/icons';
+import { IconEmail, IconHide, IconLock, IconShow, IconUser } from '../components/icons';
 
 interface registerProps {
   registerView: () => void;
