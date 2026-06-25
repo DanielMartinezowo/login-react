@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import type React from 'react';
 
 import { notify } from '../../utils/notify';
 import { authService } from '../../services/authServices';
@@ -13,10 +14,23 @@ export function useLoginForm() {
 
   const formValid = email.trim() !== '' && password.trim() !== '' && !isLoading;
 
+  const [authError, setAuthError] = useState<string | undefined>(undefined);
+
+  const handleChangeEmail = (val: string) => {
+    setEmail(val);
+    if (authError) setAuthError(undefined);
+  };
+
+  const handleChangePassword = (val: string) => {
+    setPassword(val);
+    if (authError) setAuthError(undefined);
+  };
+
   const sendForm = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formValid) return;
     setIsLoading(true);
+    setAuthError(undefined);
 
     try {
       const foundUser = await authService.login(email, password);
@@ -25,6 +39,7 @@ export function useLoginForm() {
       setPassword('');
     } catch (error) {
       notify.error('Correo o Contraseña incorrectos');
+      setAuthError('invalid');
       console.log(error);
     } finally {
       setIsLoading(false);
@@ -34,12 +49,13 @@ export function useLoginForm() {
   return {
     email,
     password,
-    setEmail,
-    setPassword,
+    setEmail: handleChangeEmail,
+    setPassword: handleChangePassword,
     sendForm,
     showPass,
     setShowPass,
     formValid,
     isLoading,
+    authError,
   };
 }

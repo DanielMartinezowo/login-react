@@ -8,7 +8,8 @@ interface loginProps {
   loginView: () => void;
 }
 export function LoginForm({ loginView }: loginProps) {
-  const { email, setEmail, password, setPassword, sendForm, formValid, isLoading } = useLoginForm();
+  const { email, setEmail, password, setPassword, sendForm, formValid, isLoading, authError } =
+    useLoginForm();
 
   return (
     <section className='w-full max-w-4xl bg-white rounded-4xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-100'>
@@ -43,6 +44,7 @@ export function LoginForm({ loginView }: loginProps) {
           name='email'
           placeholder='Introduce tu correo'
           value={email}
+          error={authError}
           iconLeft={<IconEmail />}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -52,6 +54,7 @@ export function LoginForm({ loginView }: loginProps) {
           name='password'
           placeholder='Introduce tu contraseña'
           value={password}
+          error={authError}
           iconLeft={<IconLock />}
           onChange={(e) => setPassword(e.target.value)}
           iconShow={<IconHide className='size-6 hover:text-primary-hover' />}

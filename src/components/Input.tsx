@@ -7,16 +7,29 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
   type: TypesInput;
+  error?: string;
 }
 const positionIcons = {
   iconRight: 'absolute right-4 top-1/2 -translate-y-1/2 text-primary',
 };
-export function Input({ label, type, id, className, iconLeft, iconRight, ...rest }: InputProps) {
+export function Input({
+  label,
+  type,
+  id,
+  className,
+  error,
+  iconLeft,
+  iconRight,
+  ...rest
+}: InputProps) {
   return (
     <div className='w-full h-full mb-5 flex flex-col'>
       <label
         htmlFor={id}
-        className={cn('text-primary text-sm mb-2 ml-3 flex items-center gap-1.5 font-medium')}
+        className={cn(
+          'text-primary text-sm mb-2 ml-3 flex items-center gap-1.5 font-medium',
+          error ? 'text-error-dark' : 'text-primary'
+        )}
       >
         {iconLeft}
         {label}
@@ -30,8 +43,11 @@ export function Input({ label, type, id, className, iconLeft, iconRight, ...rest
           {...rest}
           required
           className={cn(
-            'w-full px-5 py-3 border border-gray-300 rounded-3xl outline-none transition-all duration-300 bg-white text-gray-800 text-[15px] shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] focus:border-primary',
-            iconRight && 'pr-12'
+            'w-full px-5 py-3 border rounded-3xl outline-none transition-all duration-300 bg-white text-gray-800 text-[15px] shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)]',
+            iconRight && 'pr-12',
+            !error
+              ? 'border-gray-300 focus:border-primary transition-all duration-300'
+              : 'border-error-full'
           )}
         />
       </div>

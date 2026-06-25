@@ -15,4 +15,9 @@ export const users: IUser[] = [
     email: 'elena.mtz@gmail.com',
     password: 'qwerty_987',
   },
+  {
+    name: 'daniel martinez',
+    email: 'danielmtzcastro202@gmail.com',
+    password: '123456',
+  },
 ];
