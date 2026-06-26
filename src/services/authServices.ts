@@ -8,6 +8,16 @@ export class AuthService {
   }
   async login(email: string, password: string): Promise<IUser> {
     const user = await this.dataSource.login(email, password);
+    const cleanEmail = email.trim().toLocaleLowerCase;
+    const cleanPassword = password.trim;
+
+    if (!cleanEmail || !cleanPassword) {
+      throw new Error('correo y contraseña no pueden estar vacios');
+    }
+
+    if (!user || typeof user === 'undefined' || !user.email || !user.name) {
+      throw new Error('la respuesta del origen de datos esta imcompleta');
+    }
     return user;
   }
 }
