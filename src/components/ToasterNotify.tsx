@@ -1,5 +1,11 @@
 import { Toaster } from 'sonner';
 
 export function ToasterNotify() {
-  return <Toaster position='top-right'></Toaster>;
+  return (
+    <Toaster
+      richColors
+      position='top-right'
+      toastOptions={{ style: { width: 'fit-content', margin: 'auto' } }}
+    ></Toaster>
+  );
 }

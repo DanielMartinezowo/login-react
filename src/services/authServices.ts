@@ -7,7 +7,7 @@ export class AuthService {
     this.dataSource = dataSource;
   }
   async login(email: string, password: string): Promise<IUser> {
-    const user = await this.dataSource.get(email, password);
+    const user = await this.dataSource.login(email, password);
     return user;
   }
 }
