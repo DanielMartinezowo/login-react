@@ -2,6 +2,8 @@
 
 @theme {
   --color-primary: #824fcf;
+  --color-secundary: #432dd7;
+  --color-text: #6a06ff;
   --color-primary-hover: #cf4f9c;
 
   --color-success: #6fbf7384;

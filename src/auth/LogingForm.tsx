@@ -15,7 +15,7 @@ export function LoginForm({ loginView }: loginProps) {
     <section className='w-full max-w-4xl bg-white rounded-4xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-100'>
       <aside
         className='w-full md:w-1/2 bg-linear-to-br
-       from-primary to-indigo-700 text-white 
+       from-primary to-secundary text-white 
       p-5 flex flex-col justify-center items-center text-center'
       >
         <div className='mb-5'>
