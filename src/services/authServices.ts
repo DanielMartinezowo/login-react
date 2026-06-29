@@ -1,4 +1,5 @@
 import { AuthMemoryDataSource, type IAuthDataSource } from '../datasource/authDatasource';
+import { DelayedAuthDataSource } from '../datasource/delayedDatasource';
 import type { IUser } from '../users/IUser';
 
 export class AuthService {
@@ -31,4 +32,5 @@ export class AuthService {
 }
 
 const myMemoryDataSource = new AuthMemoryDataSource();
-export const authService = new AuthService(myMemoryDataSource);
+const timedDataSource = new DelayedAuthDataSource(myMemoryDataSource, true);
+export const authService = new AuthService(timedDataSource);
