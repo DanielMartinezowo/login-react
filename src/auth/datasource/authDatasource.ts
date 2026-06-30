@@ -1,4 +1,4 @@
-import type { IUser } from '../users/IUser';
+import type { IUser } from '../../users/IUser';
 
 export interface IAuthDataSource {
   login(email: string, password: string): Promise<string>;

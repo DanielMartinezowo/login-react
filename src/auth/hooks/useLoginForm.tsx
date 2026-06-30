@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type React from 'react';
 
 import { notify } from '../../utils/notify';
-import { authService } from '../../services/authServices';
+import { authService } from '../services/authServices';
 
 export function useLoginForm() {
   const [email, setEmail] = useState('');

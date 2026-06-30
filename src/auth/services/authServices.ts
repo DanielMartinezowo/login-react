@@ -1,6 +1,6 @@
 import { AuthMemoryDataSource, type IAuthDataSource } from '../datasource/authDatasource';
 import { DelayedAuthDataSource } from '../datasource/delayedDatasource';
-import type { IUser } from '../users/IUser';
+import type { IUser } from '../../users/IUser';
 import { tokenStorage } from './authTokenStorage';
 
 export class AuthService {
