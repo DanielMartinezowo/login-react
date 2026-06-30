@@ -1,6 +1,7 @@
 import { AuthMemoryDataSource, type IAuthDataSource } from '../datasource/authDatasource';
 import { DelayedAuthDataSource } from '../datasource/delayedDatasource';
 import type { IUser } from '../users/IUser';
+import { tokenStorage } from './authTokenStorage';
 
 export class AuthService {
   dataSource: IAuthDataSource;
@@ -17,9 +18,9 @@ export class AuthService {
 
     const token = await this.dataSource.login(cleanEmail, cleanPassword);
     if (!token) {
-      throw new Error('no se recibio un toke valido en el origen de datos');
+      throw new Error('no se recibio un token valido en el origen de datos');
     }
-    localStorage.setItem('token', token);
+    tokenStorage.save(token);
 
     const loadBase64 = token.split('.')[1];
     const user = JSON.parse(atob(loadBase64)) as IUser;
