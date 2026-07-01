@@ -11,7 +11,7 @@ export interface GenericTableProps<T> {
 
 export function GenericTable<T>({ data, columns, rowKey }: GenericTableProps<T>) {
   return (
-    <div className='w-full bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden'>
+    <div className='w-full max-w-3xl min-w-2xl bg-white rounded-lg shadow-sm border border-gray-200 overflow-x-auto'>
       <table className='w-full text-left border-collapse'>
         <thead className='bg-gray-50 border-b border-gray-200'>
           <tr>

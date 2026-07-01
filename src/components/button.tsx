@@ -2,7 +2,7 @@ import { IconSpinner } from './Spinner';
 import { cn } from '../utils/cn';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
+  text?: string;
   isLoading?: boolean;
 }
 
