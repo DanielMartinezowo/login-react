@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import type { IUser } from '../users/IUser';
-import { IconExit } from './icons';
+import { IconEmail, IconExit, IconUserHeader } from './icons';
 
 interface UserMenuProps {
   user: IUser;
@@ -32,13 +32,17 @@ export function UserMenu({ user, onLogout }: UserMenuProps) {
       {isOpen && (
         <div className='absolute right-0 mt-2 w-72 bg-white/90 backdrop-blur-md border border-gray-200/60 rounded-2xl shadow-xl z-50 overflow-hidden'>
           <div className='p-5 flex flex-col items-center border-b bg-blue-600/25 border-gray-100'>
-            <div className='w-14 h-14 rounded-full bg-blue-50 text-4xl font-bold text-blue-400 flex items-center justify-center'>
+            <div className='w-14 h-14 pb-1 rounded-full bg-blue-50 text-4xl font-bold text-blue-400 flex items-center justify-center'>
               <span className='text-3xl font-bold text-blue-600'>{initial}</span>
             </div>
-            <p className='text-sm font-semibold text-gray-800 text-center w-full truncate'>
-              {user.name}
+            <p className='text-sm px-4 mt-1.5 font-semibold text-gray-800 truncate text-left flex items-center space-x-1.5'>
+              <IconUserHeader />
+              <span>{user.name}</span>
             </p>
-            <p className='text-xs text-gray-500 text-center w-full truncate mt-0.5'>{user.email}</p>
+            <p className='text-xs text-gray-500 truncate text-left flex items-center space-x-1.5'>
+              <IconEmail />
+              <span>{user.email}</span>
+            </p>
           </div>
           <div className='p-2'>
             <button
