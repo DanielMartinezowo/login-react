@@ -25,5 +25,7 @@ export const UserLog: Story = {
     onLogout: () => {
       alert('Sesion cerrada correctamente');
     },
+    logoText: 'Siticl',
+    badgeText: 'Panel',
   },
 };
