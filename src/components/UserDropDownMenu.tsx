@@ -26,7 +26,7 @@ export function UserMenu({ user, onLogout }: UserMenuProps) {
     <div className='relative' ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className='flex items-center justify-center w-9 h-9 rounded-full hover:bg-blue-200 border border-blue-200 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+        className='flex items-center justify-center w-9 h-9 rounded-full hover:bg-blue-200 border border-blue-200 transition-colors focus:animate-pulse focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
       >
         <span className='text-sm font-bold text-blue-700'>{initial}</span>
       </button>
