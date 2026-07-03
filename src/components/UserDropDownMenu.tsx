@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import type { IUser } from '../users/IUser';
 import { IconEmail, IconExit, IconUserHeader } from './icons';
+import { Button } from './button';
 
 interface UserMenuProps {
   user: IUser;
@@ -45,13 +46,10 @@ export function UserMenu({ user, onLogout }: UserMenuProps) {
             </p>
           </div>
           <div className='p-2'>
-            <button
-              onClick={onLogout}
-              className='w-full px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 rounded-xl transition-colors text-left flex items-center space-x-2'
-            >
+            <Button onClick={onLogout} variant='danger'>
               <IconExit />
               <span>Cerrar Sesion</span>
-            </button>
+            </Button>
           </div>
         </div>
       )}
