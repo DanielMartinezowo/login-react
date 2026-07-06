@@ -3,13 +3,19 @@ import type { IUser } from '../../users/IUser';
 export interface IAuthDataSource {
   login(email: string, password: string): Promise<string>;
 }
-export class AuthMemoryDataSource implements IAuthDataSource {
+export interface IUserDataSource {
+  getUsers(): Promise<IUser[]>;
+}
+export class AuthMemoryDataSource implements IAuthDataSource, IUserDataSource {
   private users: IUser[] = [
     { name: 'Ana García', email: 'ana.garcia@hotmail.com', password: 'token_seguro_123' },
     { name: 'Carlos Ruiz', email: 'cruiz_dev@gmail.com', password: 'miPassword2026' },
     { name: 'Elena Martínez', email: 'elena.mtz@gmail.com', password: 'qwerty_987' },
     { name: 'daniel martinez', email: 'danielmtzcastro202@gmail.com', password: '123456' },
   ];
+  async getUsers(): Promise<IUser[]> {
+    return this.users;
+  }
   async login(email: string, password: string): Promise<string> {
     const userFound = this.users.find((u) => u.email === email && u.password === password);
     if (userFound) {
@@ -30,3 +36,4 @@ export class AuthMemoryDataSource implements IAuthDataSource {
     return simulatedJWT;
   }
 }
+export const myMemoryDataSource = new AuthMemoryDataSource();
