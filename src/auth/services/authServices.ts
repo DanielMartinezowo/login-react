@@ -1,8 +1,4 @@
-import {
-  AuthMemoryDataSource,
-  myMemoryDataSource,
-  type IAuthDataSource,
-} from '../datasource/authDatasource';
+import { myMemoryDataSource, type IAuthDataSource } from '../datasource/authDatasource';
 import { DelayedAuthDataSource } from '../datasource/delayedDatasource';
 import type { IUser } from '../../users/IUser';
 import { tokenStorage } from './authTokenStorage';
