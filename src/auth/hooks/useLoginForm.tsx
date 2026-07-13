@@ -4,7 +4,7 @@ import type React from 'react';
 import { notify } from '../../utils/notify';
 import { authService } from '../services/authServices';
 
-export function useLoginForm() {
+export function useLoginForm(onLoginSuccess: () => void) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -34,6 +34,7 @@ export function useLoginForm() {
 
     try {
       const foundUser = await authService.login(email, password);
+      onLoginSuccess();
       notify.succes(`Bienvenido ${foundUser.name}`);
       setEmail('');
       setPassword('');

@@ -18,7 +18,7 @@ export const useUsers = () => {
         setIsLoading(false);
       }
     };
-    fetchUsers;
+    fetchUsers();
   }, []);
   return { user, isLoading };
 };

@@ -6,10 +6,11 @@ import { useLoginForm } from './hooks/useLoginForm';
 
 interface loginProps {
   loginView: () => void;
+  onLoginSuccess: () => void;
 }
-export function LoginForm({ loginView }: loginProps) {
+export function LoginForm({ loginView, onLoginSuccess }: loginProps) {
   const { email, setEmail, password, setPassword, sendForm, formValid, isLoading, authError } =
-    useLoginForm();
+    useLoginForm(onLoginSuccess);
 
   return (
     <section className='w-full max-w-4xl bg-white rounded-4xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-100'>

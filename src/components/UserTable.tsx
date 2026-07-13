@@ -12,11 +12,11 @@ export function UserTable({ users }: UserTableProps) {
     },
     {
       header: 'Email',
-      accessor: 'name',
+      accessor: 'email',
     },
   ];
   return (
-    <section className='w-full'>
+    <section className='w-full max-w-4xl min-w-2xl'>
       <GenericTable data={users} columns={columns} rowKey='email' />
     </section>
   );
