@@ -27,7 +27,7 @@ export function Button({
     disabled || isLoading
       ? variant === 'primary'
         ? 'disabled:bg-gray-200 disabled:text-gray-400 cursor-not-allowed'
-        : 'bg-gray-200 text-gray-400 cursor-not-allowed shadow-none'
+        : 'disabled:text-gray-400 cursor-not-allowed opacity-50 bg-transparent shadow-none'
       : '';
   return (
     <button

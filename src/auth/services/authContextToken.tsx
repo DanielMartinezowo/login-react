@@ -1,11 +1,12 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import type { IUser } from '../../users/IUser';
 import { tokenStorage } from './authTokenStorage';
+import { authService } from './authServices';
 
 export interface authContextTokeType {
   loggedUser: IUser | null;
   login: (user: IUser) => void;
-  logout: () => void;
+  logout: () => Promise<void>;
   isAuthLoading: boolean;
 }
 const AuthContext = createContext<authContextTokeType | undefined>(undefined);
@@ -30,9 +31,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = (user: IUser) => {
     setLoggedUser(user);
   };
-  const logout = () => {
-    setLoggedUser(null);
-    tokenStorage.clear();
+  const logout = async () => {
+    try {
+      await authService.logout();
+      setLoggedUser(null);
+    } catch (error) {
+      console.error('error al cerrar sesion: ', error);
+    } finally {
+    }
   };
   return (
     <AuthContext.Provider value={{ loggedUser, login, logout, isAuthLoading }}>

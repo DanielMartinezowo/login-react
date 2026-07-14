@@ -30,6 +30,10 @@ export class AuthService {
     }
     return user;
   }
+  async logout(): Promise<void> {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    tokenStorage.clear();
+  }
 }
 
 const timedDataSource = new DelayedAuthDataSource(myMemoryDataSource, true);
