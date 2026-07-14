@@ -3,6 +3,7 @@ import type React from 'react';
 
 import { notify } from '../../utils/notify';
 import { authService } from '../services/authServices';
+import { useAuth } from '../services/authContextToken';
 
 export function useLoginForm(onLoginSuccess: () => void) {
   const [email, setEmail] = useState('');
@@ -25,7 +26,7 @@ export function useLoginForm(onLoginSuccess: () => void) {
     setPassword(val);
     if (authError) setAuthError(undefined);
   };
-
+  const { login } = useAuth();
   const sendForm = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formValid) return;
@@ -34,6 +35,7 @@ export function useLoginForm(onLoginSuccess: () => void) {
 
     try {
       const foundUser = await authService.login(email, password);
+      login(foundUser);
       onLoginSuccess();
       notify.succes(`Bienvenido ${foundUser.name}`);
       setEmail('');

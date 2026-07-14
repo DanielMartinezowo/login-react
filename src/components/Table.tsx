@@ -13,10 +13,10 @@ export function GenericTable<T>({ data, columns, rowKey }: GenericTableProps<T>)
   return (
     <div className='w-full bg-white rounded-lg shadow-sm border border-gray-200 overflow-x-auto'>
       <table className='w-full text-left border-collapse'>
-        <thead className='bg-gray-50 border-b border-gray-200'>
+        <thead className='bg-primary border-b border-gray-200'>
           <tr>
             {columns.map((column, index) => (
-              <th key={index} className='py-3 px-4 text-sm font-bold border-x border-gray-300'>
+              <th key={index} className='py-3 px-4 text-sm font-bold border-x border-primary'>
                 {column.header}
               </th>
             ))}
