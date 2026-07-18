@@ -18,9 +18,9 @@ export function UserMenu({ user, onLogout }: UserMenuProps) {
     <div className='relative' ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className='flex items-center justify-center w-9 h-9 rounded-full hover:bg-blue-200 border border-blue-200 transition-colors active:scale-95 focus:animate-pulse focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+        className='flex items-center justify-center w-9 h-9 rounded-full hover:bg-ui-bg border border-primary transition-colors active:scale-95 focus:animate-pulse focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2'
       >
-        <span className='text-sm font-bold text-primary'>{initial}</span>
+        <span className='text-sm font-bold text-ui-text'>{initial}</span>
       </button>
 
       <div
@@ -32,15 +32,15 @@ export function UserMenu({ user, onLogout }: UserMenuProps) {
             : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
         )}
       >
-        <div className='p-5 flex flex-col items-center border-b bg-blue-600/25 border-gray-100'>
-          <div className='w-14 h-14 pb-1 rounded-full bg-blue-50 text-4xl font-bold text-blue-400 flex items-center justify-center'>
-            <span className='text-3xl font-bold text-blue-600'>{initial}</span>
+        <div className='p-5 flex flex-col items-center border-b bg-secondary border-gray-100'>
+          <div className='w-14 h-14 pb-1 rounded-full bg-accent text-4xl font-bold flex items-center justify-center'>
+            <span className='text-3xl font-bold text-ui-text'>{initial}</span>
           </div>
-          <p className='text-sm px-4 mt-1.5 font-semibold text-gray-800 truncate text-left flex items-center space-x-1.5'>
+          <p className='text-sm px-4 mt-1.5 font-semibold text-ui-text truncate text-left flex items-center space-x-1.5'>
             <IconUserHeader />
             <span>{user.name}</span>
           </p>
-          <p className='text-xs text-gray-500 truncate text-left flex items-center space-x-1.5'>
+          <p className='text-xs text-ui-text truncate text-left flex items-center space-x-1.5'>
             <IconEmail />
             <span>{user.email}</span>
           </p>

@@ -20,7 +20,7 @@ export function RegisterForm({ registerView }: registerProps) {
     <section className='container-form login w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-100'>
       <aside
         className='information w-full md:w-1/2 bg-linear-to-br
-       from-primary to-indigo-700 text-white 
+       from-primary to-accent text-white 
       p-5 flex flex-col justify-center items-center text-center'
       >
         <div className='mb-5'>

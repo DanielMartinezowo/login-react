@@ -18,13 +18,13 @@ export function Footer({ companyName = 'Siticl', version = 'v1.1.1' }: FooterPro
           <span>Programa de intern</span>
         </div>
         <div className='flex items-center space-x-6'>
-          <span className='text-xs font-semibold text-gray-600 bg-white px-2 py-0.5 rounded-full hover:bg-primary-hover hover:text-gray-900 cursor-pointer transition-colors duration-200'>
+          <span className='text-xs font-semibold text-ui-muted bg-white px-2 py-0.5 rounded-full hover:bg-primary-hover hover:text-ui-text cursor-pointer transition-colors duration-200'>
             Soporte
           </span>
-          <span className='text-xs font-semibold text-gray-600 bg-white px-2 py-0.5 rounded-full hover:bg-primary-hover hover:text-gray-900 cursor-pointer transition-colors duration-200'>
+          <span className='text-xs font-semibold text-ui-muted bg-white px-2 py-0.5 rounded-full hover:bg-primary-hover hover:text-ui-text cursor-pointer transition-colors duration-200'>
             Privacidad
           </span>
-          <span className='text-xs font-semibold text-gray-600 bg-white px-2 py-0.5 rounded-full'>
+          <span className='text-xs font-semibold text-ui-muted bg-white px-2 py-0.5 rounded-full'>
             {version}
           </span>
         </div>

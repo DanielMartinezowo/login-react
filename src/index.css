@@ -1,15 +1,22 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: #824fcf;
-  --color-secundary: #432dd7;
-  --color-text: #6a06ff;
-  --color-primary-hover: #cf4f9c;
+  /* Colores de Marca (Fresa) */
+  --color-primary: #f9778f;
+  --color-primary-hover: #e0536d;
+  --color-secondary: #fab0c1;
+  --color-secondary-hover: #fbd6e5;
+  --color-accent: #e9d4a9;
 
-  --color-success: #6fbf7384;
-  --color-success-dark: #134616;
+  /* Neutros Cálidos (Crema, Chocolate y Café) */
+  --color-ui-bg: #feeff4;
+  --color-ui-text: #3a2226;
+  --color-ui-muted: #8c7477;
 
-  --color-error: #c065659d;
-  --color-error-full: #f44336;
-  --color-error-dark: #621919;
+  /* Estados Semánticos Integrados (Verde Pistacho y Rojo Cereza) */
+  --color-success: #60b682;
+  --color-success-dark: #3b7a54;
+
+  --color-error: #e55353;
+  --color-error-dark: #a82d2d;
 }

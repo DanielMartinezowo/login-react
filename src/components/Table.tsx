@@ -31,7 +31,7 @@ export function GenericTable<T>({ data, columns, rowKey }: GenericTableProps<T>)
               {columns.map((column, index) => (
                 <td
                   key={index}
-                  className='py-3 px-4 text-sm text-gray-500 font-medium border-x border-gray-300'
+                  className='py-4 px-4 text-sm text-ui-text font-medium border-x border-gray-300'
                 >
                   {String(item[column.accessor])}
                 </td>

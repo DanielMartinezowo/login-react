@@ -16,7 +16,7 @@ export function Header({ user, onLogout, logoText, badgeText }: headerProps) {
           <span className='text-xl font-bold  bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent'>
             {logoText}
           </span>
-          <span className='text-xs font-semibold text-gray-600 bg-gray-100 px-2 py-0.5 rounded-full'>
+          <span className='text-xs font-semibold text-ui-muted bg-gray-100 px-2 py-0.5 rounded-full'>
             {badgeText}
           </span>
         </div>

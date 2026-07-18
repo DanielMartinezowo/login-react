@@ -6,17 +6,13 @@ import { useAuth } from './services/authContextToken';
 
 export function DashboardView() {
   const { loggedUser, logout } = useAuth();
-  const { user, isLoading } = useUsers();
+  const { user } = useUsers();
   return (
-    <div className='min-h-screen bg-gray-50 flex flex-col items-center'>
+    <div className='min-h-screen bg-ui-bg flex flex-col items-center'>
       <Header logoText='Siticl' badgeText='Panel Usuarios' user={loggedUser} onLogout={logout} />
-      <main className='grow p-9 '>
-        <h1 className='text-2xl  font-bold mb-6 text-gray-700'>Usuarios en sistema</h1>
-        {isLoading ? (
-          <div className='text-gray-200 font-medium'>Cargando usuarios</div>
-        ) : (
-          <UserTable users={user} />
-        )}
+      <main className='bg-white rounded-2xl shadow-sm border border-gray-100 grow p-10 mt-4 mb-4'>
+        <h1 className='text-2xl  font-bold mb-6 text-ui-text'>Usuarios en sistema</h1>
+        <UserTable users={user} />
       </main>
       <Footer />
     </div>
